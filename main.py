@@ -24,7 +24,7 @@ def apply_pixelation(image, x, y, w, h, blocks=10):
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 # YOLOv8 για Πινακίδες (ή Οχήματα προσωρινά)
-yolo_model = YOLO('yolov8n.pt') 
+yolo_model = YOLO('best.pt')
 
 # --- 3. Ρύθμιση Κάμερας ---
 cap = cv2.VideoCapture(0)
@@ -57,7 +57,7 @@ while cap.isOpened():
         boxes = r.boxes
         for box in boxes:
             cls = int(box.cls[0])
-            if cls == 2: # 2 = "Αυτοκίνητο"
+            if cls == 0: # 0 = "Αυτοκίνητο"
                 x1, y1, x2, y2 = map(int, box.xyxy[0])
                 w_box, h_box = x2 - x1, y2 - y1
                 # Εφαρμογή Pixelation στα οχήματα
