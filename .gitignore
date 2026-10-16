@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Outputs
+*.mp4
+*.avi
+*_anon.*
+runs/
+
+# Editors
+.vscode/
+.idea/
